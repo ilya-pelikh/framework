@@ -1,0 +1,936 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Islands qualification profile v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "purpose": {
+      "enum": ["target", "local-smoke"]
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "baseUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "assetOrigins": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "deploymentProfileSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": ["name", "baseUrl", "assetOrigins", "deploymentProfileSha256"],
+      "additionalProperties": false
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "commit": {
+          "type": "string",
+          "pattern": "^(?:[a-f0-9]{40}|[a-f0-9]{64})$"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 512
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": ["name", "sha256"],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 1024
+        }
+      },
+      "required": ["commit", "artifacts"],
+      "additionalProperties": false
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "frozenAt": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "approvedBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "required": ["frozenAt", "approvedBy", "evidence"],
+      "additionalProperties": false
+    },
+    "owners": {
+      "type": "object",
+      "properties": {
+        "environment": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "release": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "security": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "onCall": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "required": ["environment", "release", "security", "onCall"],
+      "additionalProperties": false
+    },
+    "operations": {
+      "type": "object",
+      "properties": {
+        "runbookRecord": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "retentionMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "pageLifetimeMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "rollbackWindowMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "propagationMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "clockMarginMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "runbookRecord",
+        "retentionMs",
+        "pageLifetimeMs",
+        "rollbackWindowMs",
+        "propagationMs",
+        "clockMarginMs"
+      ],
+      "additionalProperties": false
+    },
+    "workload": {
+      "type": "object",
+      "properties": {
+        "normal": {
+          "type": "object",
+          "properties": {
+            "rps": {
+              "type": "number",
+              "minimum": 5e-324,
+              "maximum": 9007199254740991
+            },
+            "concurrency": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "requestTimeoutMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "disconnectAfterMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "routes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "slots": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "payloadBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": ["path", "weight", "slots", "payloadBytes"],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 64
+            }
+          },
+          "required": ["rps", "concurrency", "durationMs", "requestTimeoutMs", "disconnectAfterMs", "routes"],
+          "additionalProperties": false
+        },
+        "burst": {
+          "type": "object",
+          "properties": {
+            "rps": {
+              "type": "number",
+              "minimum": 5e-324,
+              "maximum": 9007199254740991
+            },
+            "concurrency": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "requestTimeoutMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "disconnectAfterMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "routes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "slots": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "payloadBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": ["path", "weight", "slots", "payloadBytes"],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 64
+            }
+          },
+          "required": ["rps", "concurrency", "durationMs", "requestTimeoutMs", "disconnectAfterMs", "routes"],
+          "additionalProperties": false
+        },
+        "soak": {
+          "type": "object",
+          "properties": {
+            "rps": {
+              "type": "number",
+              "minimum": 5e-324,
+              "maximum": 9007199254740991
+            },
+            "concurrency": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "requestTimeoutMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "disconnectAfterMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "routes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "slots": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "payloadBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": ["path", "weight", "slots", "payloadBytes"],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 64
+            }
+          },
+          "required": ["rps", "concurrency", "durationMs", "requestTimeoutMs", "disconnectAfterMs", "routes"],
+          "additionalProperties": false
+        },
+        "outage": {
+          "type": "object",
+          "properties": {
+            "rps": {
+              "type": "number",
+              "minimum": 5e-324,
+              "maximum": 9007199254740991
+            },
+            "concurrency": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "requestTimeoutMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "disconnectAfterMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "routes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "slots": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "payloadBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": ["path", "weight", "slots", "payloadBytes"],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 64
+            }
+          },
+          "required": ["rps", "concurrency", "durationMs", "requestTimeoutMs", "disconnectAfterMs", "routes"],
+          "additionalProperties": false
+        },
+        "disconnect": {
+          "type": "object",
+          "properties": {
+            "rps": {
+              "type": "number",
+              "minimum": 5e-324,
+              "maximum": 9007199254740991
+            },
+            "concurrency": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "requestTimeoutMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "disconnectAfterMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "routes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "slots": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "payloadBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": ["path", "weight", "slots", "payloadBytes"],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 64
+            }
+          },
+          "required": ["rps", "concurrency", "durationMs", "requestTimeoutMs", "disconnectAfterMs", "routes"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["normal", "burst", "soak", "outage", "disconnect"],
+      "additionalProperties": false
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "viewport": {
+            "type": "object",
+            "properties": {
+              "width": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": ["width", "height"],
+            "additionalProperties": false
+          },
+          "deviceScaleFactor": {
+            "type": "number",
+            "minimum": 5e-324,
+            "maximum": 9007199254740991
+          },
+          "cpuSlowdown": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "mobile": {
+            "type": "boolean"
+          }
+        },
+        "required": ["name", "viewport", "deviceScaleFactor", "cpuSlowdown", "mobile"],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "networks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "latencyMs": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "downloadBytesPerSecond": {
+            "type": "number",
+            "minimum": 5e-324,
+            "maximum": 9007199254740991
+          },
+          "uploadBytesPerSecond": {
+            "type": "number",
+            "minimum": 5e-324,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": ["name", "latencyMs", "downloadBytesPerSecond", "uploadBytesPerSecond"],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "thresholds": {
+      "type": "object",
+      "properties": {
+        "normal": {
+          "type": "object",
+          "properties": {
+            "latencyP95Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "latencyP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "rssBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "eventLoopP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "connections": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "fallbackRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "errorRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "browserTransferBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "hydrationMs": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "cls": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "latencyP95Ms",
+            "latencyP99Ms",
+            "rssBytes",
+            "eventLoopP99Ms",
+            "connections",
+            "fallbackRate",
+            "errorRate",
+            "browserTransferBytes",
+            "hydrationMs",
+            "cls"
+          ],
+          "additionalProperties": false
+        },
+        "burst": {
+          "type": "object",
+          "properties": {
+            "latencyP95Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "latencyP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "rssBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "eventLoopP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "connections": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "fallbackRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "errorRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "browserTransferBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "hydrationMs": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "cls": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "latencyP95Ms",
+            "latencyP99Ms",
+            "rssBytes",
+            "eventLoopP99Ms",
+            "connections",
+            "fallbackRate",
+            "errorRate",
+            "browserTransferBytes",
+            "hydrationMs",
+            "cls"
+          ],
+          "additionalProperties": false
+        },
+        "soak": {
+          "type": "object",
+          "properties": {
+            "latencyP95Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "latencyP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "rssBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "eventLoopP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "connections": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "fallbackRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "errorRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "browserTransferBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "hydrationMs": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "cls": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "latencyP95Ms",
+            "latencyP99Ms",
+            "rssBytes",
+            "eventLoopP99Ms",
+            "connections",
+            "fallbackRate",
+            "errorRate",
+            "browserTransferBytes",
+            "hydrationMs",
+            "cls"
+          ],
+          "additionalProperties": false
+        },
+        "outage": {
+          "type": "object",
+          "properties": {
+            "latencyP95Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "latencyP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "rssBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "eventLoopP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "connections": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "fallbackRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "errorRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "browserTransferBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "hydrationMs": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "cls": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "latencyP95Ms",
+            "latencyP99Ms",
+            "rssBytes",
+            "eventLoopP99Ms",
+            "connections",
+            "fallbackRate",
+            "errorRate",
+            "browserTransferBytes",
+            "hydrationMs",
+            "cls"
+          ],
+          "additionalProperties": false
+        },
+        "disconnect": {
+          "type": "object",
+          "properties": {
+            "latencyP95Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "latencyP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "rssBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "eventLoopP99Ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "connections": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "fallbackRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "errorRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "browserTransferBytes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "hydrationMs": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "cls": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "latencyP95Ms",
+            "latencyP99Ms",
+            "rssBytes",
+            "eventLoopP99Ms",
+            "connections",
+            "fallbackRate",
+            "errorRate",
+            "browserTransferBytes",
+            "hydrationMs",
+            "cls"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": ["normal", "burst", "soak", "outage", "disconnect"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "purpose",
+    "environment",
+    "identity",
+    "approval",
+    "owners",
+    "operations",
+    "workload",
+    "devices",
+    "networks",
+    "thresholds"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,55 @@
+name: verify
+on: [push, pull_request]
+jobs:
+  verify:
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: npm
+      - run: npm install --global npm@11.19.1 --ignore-scripts
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: node --import tsx tests/start-smoke.ts
+      - run: npx playwright install --with-deps chromium
+      - run: openssl version
+      - run: node --import tsx tests/build-smoke.ts
+      - run: node --import tsx tests/build-browser-smoke.ts
+      - run: npm run test:hardening
+      - run: npm run test:load
+      - run: npm run test:e2e
+      - run: npm run build --workspace @islands/catalog
+        env:
+          RELEASE_ID: v2
+      - run: node --import tsx tests/deploy-release.e2e.ts
+      - run: node --import tsx tests/dev-smoke.ts
+      - run: npm run security:report
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dependency-security-${{ matrix.os }}
+          path: .cache/security/
+          include-hidden-files: true
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: load-smoke-${{ matrix.os }}
+          path: .cache/load-harness/
+          include-hidden-files: true
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: failure-evidence-${{ matrix.os }}
+          path: .cache/test-artifacts/
+          include-hidden-files: true
+          retention-days: 7

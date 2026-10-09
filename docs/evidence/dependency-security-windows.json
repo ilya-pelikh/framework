@@ -1,0 +1,57 @@
+{
+  "vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "kind": "local-dependency-security-evidence",
+  "artifactInventorySha256": "be6ca26937244d165c5db4408025e5bfc443c2512bdff2f07f6a337d5cc4a823",
+  "sourceReportSha256": "c4fb3864141743f09800eab23b9f6d226365dd9777e67e16b488f151da21c490",
+  "report": {
+    "schemaVersion": 1,
+    "kind": "dependency-security",
+    "createdAt": "2026-10-03T12:24:57.407Z",
+    "status": "passed",
+    "productionQualified": false,
+    "node": "v24.21.0",
+    "npm": "11.19.1",
+    "platform": "win32",
+    "osRelease": "10.0.26200",
+    "arch": "x64",
+    "commit": null,
+    "lockSha256": "2a88ecb746ed3b6ae6d53bfa0223bf13b4ccb96d5dd2808d4e285e2d3d6ed12f",
+    "coverage": "full-lock-build-and-runtime-superset",
+    "failures": [],
+    "reports": {
+      "install-policy.json": {
+        "sha256": "8a453ed017f211cd3062a71c6319c4bdf91943f76fbed7bba7db75bd18f4e827",
+        "bytes": 263
+      },
+      "audit.json": {
+        "sha256": "7db81c6f5d577c9ec17c74b9625611ff12b8afefbad07464c9870c0568aca400",
+        "bytes": 363
+      },
+      "build.cdx.json": {
+        "sha256": "9a53f90081f560cf7f81e2e02a20f2ec0d4c2069370b4c2ac43377460848e710",
+        "bytes": 158403
+      },
+      "runtime.cdx.json": {
+        "sha256": "a48b48263cafc30194342dbc4c7f6e2052b05f588d4e9b82cc4fe62acb62aa0a",
+        "bytes": 64626
+      },
+      "artifacts.json": {
+        "sha256": "9d9093bd69c51b69ebbc9a6a6d1d0876c96d4dfaa9c54c58b90ea34c253ea247",
+        "bytes": 7653
+      }
+    },
+    "advisoryPolicy": "Every finding blocks; no automatic waivers or dispositions."
+  },
+  "sourceDirectory": "C:\\Users\\Ilya\\AppData\\Local\\Temp\\islands-verification-1f805ff80023408b9de18728a028cb31\\project\\.cache\\security\\1791030295413-88cc6fe1-eb05-49e8-b588-966743de99dc",
+  "buildComponents": 172,
+  "artifactFiles": 41,
+  "runtimeComponents": 77,
+  "schemaVersion": 1
+}

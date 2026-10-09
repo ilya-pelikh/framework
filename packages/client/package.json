@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "name": "@islands/client",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    "./react": "./src/react.ts",
+    ".": "./src/index.ts"
+  },
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@islands/contracts": "0.1.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "kind": "local-resource-smoke",
+  "productionQualified": false,
+  "node": "v26.10.0",
+  "platform": "win32",
+  "limits": {
+    "maxSlots": 32,
+    "maxActive": 2,
+    "maxPerModule": 1,
+    "maxQueue": 0,
+    "maxResponseBytes": 6144
+  },
+  "burst": 20,
+  "overloaded": 20,
+  "after": {
+    "active": 0,
+    "queued": 0,
+    "reservedBytes": 0,
+    "modules": 0
+  },
+  "events": [
+    {
+      "requestId": "2d0f0a91-cd75-41c1-a2a7-79b97a0a6847",
+      "role": "host",
+      "stage": "admission",
+      "category": "overload",
+      "durationMs": 0.214,
+      "moduleId": "busy",
+      "releaseId": "v1",
+      "slot": "main"
+    },
+    {
+      "requestId": "ab888531-2351-462a-be47-356f336a2fc2",
+      "role": "host",
+      "stage": "render",
+      "category": "disconnect",
+      "durationMs": 52.598,
+      "moduleId": "busy",
+      "releaseId": "v1",
+      "slot": "main"
+    },
+    {
+      "requestId": "39e469fd-292f-4733-967a-4701ffb10d85",
+      "role": "host",
+      "stage": "render",
+      "category": "http",
+      "durationMs": 1.183,
+      "moduleId": "busy",
+      "releaseId": "v1",
+      "slot": "main"
+    }
+  ],
+  "metrics": [
+    {
+      "name": "pipeline",
+      "value": 1,
+      "durationMs": 0.214,
+      "labels": {
+        "role": "host",
+        "stage": "admission",
+        "outcome": "overload"
+      }
+    }
+  ]
+}

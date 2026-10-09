@@ -1,0 +1,8 @@
+.cart {
+  border: 2px solid rgb(30, 64, 175);
+  padding: 16px;
+  background: #eff6ff;
+}
+.cart button {
+  padding: 8px 16px;
+}

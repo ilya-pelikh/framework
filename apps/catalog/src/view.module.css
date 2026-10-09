@@ -1,0 +1,9 @@
+.catalog {
+  border: 2px solid rgb(22, 101, 52);
+  padding: 16px;
+  background: #f0fdf4;
+}
+.catalog input {
+  margin-left: 12px;
+  padding: 6px;
+}

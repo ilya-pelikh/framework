@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "name": "@islands/contracts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./integrity": "./src/integrity.ts"
+  },
+  "type": "module",
+  "private": true
+}

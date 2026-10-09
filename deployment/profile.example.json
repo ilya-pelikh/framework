@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "purpose": "reference",
+  "environment": "example-staging",
+  "owner": "example-platform-owner",
+  "hostOrigin": "https://shop.example",
+  "registryPath": "/etc/islands/registry.json",
+  "principals": {
+    "runtime": "islands-runtime",
+    "trustedPublishers": ["release-publisher"],
+    "registryWriters": ["release-operator"]
+  },
+  "storage": {
+    "releasesReadOnly": true,
+    "registryReadOnly": true,
+    "publisherExclusive": true
+  },
+  "network": {
+    "moduleOrigins": ["https://catalog.example", "https://cart.example"],
+    "hostAddresses": ["192.0.2.10"],
+    "renderAccess": "private",
+    "serviceAuth": "bearer",
+    "upstreamBind": "loopback",
+    "tlsTermination": "reverse-proxy"
+  },
+  "secrets": {
+    "hostTokensFile": "/run/secrets/islands-host-tokens.json",
+    "moduleTokensFile": "/run/secrets/islands-module-tokens.json"
+  }
+}

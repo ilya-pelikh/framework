@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "kind": "qualification-load",
+  "status": "load-passed",
+  "productionQualified": false,
+  "profileSha256": "b129dde51019101346dc9e88cd7110080f9e1b0897b8fa404e2e6266ab879ccb",
+  "startedAt": "2026-10-05T15:23:47.885Z",
+  "node": "v24.21.0",
+  "platform": "win32",
+  "serverVersions": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "measurementScope": "fixture and generator share process; smoke only"
+  },
+  "identity": {
+    "commit": "5e0938d5607e94d1de6f2d62636a11dd62219dbc35b6eb659355d555d567cadd",
+    "artifacts": [
+      {
+        "name": "busy/integrity.json",
+        "sha256": "131f20b7f503b445ee2a64e7dbb80244f70fcf1197031b2640b8e1316ccd845b"
+      },
+      {
+        "name": "neighbor/integrity.json",
+        "sha256": "26a69b92855d8ec75d3d2c53253f074fef2ccd19bae24b8f47bb3ea51dae039e"
+      },
+      {
+        "name": "browser/runtime.js",
+        "sha256": "036312d0cf8d530de46cfcbe2605dc5168cb7ab463fa980d5ad46d5a48981b5e"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "scenario": "normal",
+      "scheduled": 4,
+      "started": 4,
+      "completed": 4,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 9,
+      "durationMs": 464.4847999999997,
+      "measurements": {
+        "latencyP95Ms": 55,
+        "latencyP99Ms": 55,
+        "rssBytes": 691163136,
+        "eventLoopP99Ms": 19.988479,
+        "connections": 4,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 95,
+        "cls": 0
+      },
+      "violations": [],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 95,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "burst",
+      "scheduled": 8,
+      "started": 8,
+      "completed": 8,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 8,
+      "durationMs": 421.8881999999994,
+      "measurements": {
+        "latencyP95Ms": 12,
+        "latencyP99Ms": 12,
+        "rssBytes": 696303616,
+        "eventLoopP99Ms": 20.398079,
+        "connections": 4,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 109,
+        "cls": 0
+      },
+      "violations": [],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 109,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "soak",
+      "scheduled": 8,
+      "started": 8,
+      "completed": 8,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 15,
+      "durationMs": 823.0379999999996,
+      "measurements": {
+        "latencyP95Ms": 8,
+        "latencyP99Ms": 8,
+        "rssBytes": 709398528,
+        "eventLoopP99Ms": 16.515071,
+        "connections": 4,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 82.60000002384186,
+        "cls": 0
+      },
+      "violations": [],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 82.60000002384186,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "outage",
+      "scheduled": 4,
+      "started": 4,
+      "completed": 4,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 4,
+      "errors": 0,
+      "telemetrySamples": 9,
+      "durationMs": 464.1704,
+      "measurements": {
+        "latencyP95Ms": 7,
+        "latencyP99Ms": 7,
+        "rssBytes": 713154560,
+        "eventLoopP99Ms": 16.605183,
+        "connections": 6,
+        "fallbackRate": 1,
+        "errorRate": 0,
+        "browserTransferBytes": 230409,
+        "hydrationMs": 75.60000002384186,
+        "cls": 0
+      },
+      "violations": [],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 230409,
+            "hydrationMs": 75.60000002384186,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "disconnect",
+      "scheduled": 4,
+      "started": 4,
+      "completed": 0,
+      "dropped": 0,
+      "disconnected": 4,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 9,
+      "durationMs": 458.97380000000067,
+      "measurements": {
+        "latencyP95Ms": 42,
+        "latencyP99Ms": 42,
+        "rssBytes": 716386304,
+        "eventLoopP99Ms": 16.629759,
+        "connections": 2,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 259.5,
+        "cls": 0
+      },
+      "violations": [],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 259.5,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "unverified": [
+    "target-security-boundary",
+    "cold-old-page-import",
+    "accessibility-rehearsal",
+    "rollout-rollback-publication",
+    "R1-R8-acceptance",
+    "owner-signoff",
+    "local-fixture-only"
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "kind": "qualification-load",
+  "status": "not-qualified",
+  "productionQualified": false,
+  "profileSha256": "a546e4c1a701ed59770e3174fcead00237eed4649a09e728a50d8447d8b49a10",
+  "startedAt": "2026-10-06T09:08:20.214Z",
+  "node": "v24.21.0",
+  "platform": "linux",
+  "serverVersions": {
+    "node": "v24.21.0",
+    "platform": "linux",
+    "measurementScope": "fixture and generator share process; smoke only"
+  },
+  "identity": {
+    "commit": "5e0938d5607e94d1de6f2d62636a11dd62219dbc35b6eb659355d555d567cadd",
+    "artifacts": [
+      {
+        "name": "busy/integrity.json",
+        "sha256": "4862ed954576e2bc6dfd117b8264370ed9ad82bda1de0b63408ef81d8242562d"
+      },
+      {
+        "name": "neighbor/integrity.json",
+        "sha256": "ca7591d37e784949582fb429f74f8300c93ae31453389f9e6cb54c2933f69179"
+      },
+      {
+        "name": "browser/runtime.js",
+        "sha256": "036312d0cf8d530de46cfcbe2605dc5168cb7ab463fa980d5ad46d5a48981b5e"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "scenario": "normal",
+      "scheduled": 4,
+      "started": 4,
+      "completed": 4,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 9,
+      "durationMs": 403.43329300000005,
+      "measurements": {
+        "latencyP95Ms": 7,
+        "latencyP99Ms": 7,
+        "rssBytes": 716451840,
+        "eventLoopP99Ms": 11.689983,
+        "connections": 2,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 72.89999999999418,
+        "cls": 0
+      },
+      "violations": [
+        "rssBytes"
+      ],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 72.89999999999418,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "burst",
+      "scheduled": 8,
+      "started": 8,
+      "completed": 8,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 10,
+      "durationMs": 456.0420180000001,
+      "measurements": {
+        "latencyP95Ms": 9,
+        "latencyP99Ms": 9,
+        "rssBytes": 717443072,
+        "eventLoopP99Ms": 11.001855,
+        "connections": 2,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 66.69999999999709,
+        "cls": 0
+      },
+      "violations": [
+        "rssBytes"
+      ],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 66.69999999999709,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "soak",
+      "scheduled": 8,
+      "started": 8,
+      "completed": 8,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 17,
+      "durationMs": 804.369381999999,
+      "measurements": {
+        "latencyP95Ms": 9,
+        "latencyP99Ms": 9,
+        "rssBytes": 719278080,
+        "eventLoopP99Ms": 11.198463,
+        "connections": 2,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 81.19999999999709,
+        "cls": 0
+      },
+      "violations": [
+        "rssBytes"
+      ],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 81.19999999999709,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "outage",
+      "scheduled": 4,
+      "started": 4,
+      "completed": 4,
+      "dropped": 0,
+      "disconnected": 0,
+      "fallbacks": 4,
+      "errors": 0,
+      "telemetrySamples": 10,
+      "durationMs": 452.6236779999999,
+      "measurements": {
+        "latencyP95Ms": 7,
+        "latencyP99Ms": 7,
+        "rssBytes": 721637376,
+        "eventLoopP99Ms": 10.805247,
+        "connections": 2,
+        "fallbackRate": 1,
+        "errorRate": 0,
+        "browserTransferBytes": 230409,
+        "hydrationMs": 48.10000000000582,
+        "cls": 0
+      },
+      "violations": [
+        "rssBytes"
+      ],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 230409,
+            "hydrationMs": 48.10000000000582,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "disconnect",
+      "scheduled": 4,
+      "started": 4,
+      "completed": 0,
+      "dropped": 0,
+      "disconnected": 4,
+      "fallbacks": 0,
+      "errors": 0,
+      "telemetrySamples": 10,
+      "durationMs": 452.73143399999935,
+      "measurements": {
+        "latencyP95Ms": 32,
+        "latencyP99Ms": 32,
+        "rssBytes": 723210240,
+        "eventLoopP99Ms": 11.051007,
+        "connections": 2,
+        "fallbackRate": 0,
+        "errorRate": 0,
+        "browserTransferBytes": 453504,
+        "hydrationMs": 250.90000000000873,
+        "cls": 0
+      },
+      "violations": [
+        "rssBytes"
+      ],
+      "browsers": [
+        {
+          "device": "chromium-desktop-emulation",
+          "network": "local-shaped-network",
+          "path": "/",
+          "result": {
+            "browserTransferBytes": 453504,
+            "hydrationMs": 250.90000000000873,
+            "cls": 0,
+            "errors": 0,
+            "browserVersion": "153.0.8010.12"
+          }
+        }
+      ]
+    }
+  ],
+  "failures": [
+    "normal:rssBytes",
+    "burst:rssBytes",
+    "soak:rssBytes",
+    "outage:rssBytes",
+    "disconnect:rssBytes"
+  ],
+  "unverified": [
+    "target-security-boundary",
+    "cold-old-page-import",
+    "accessibility-rehearsal",
+    "rollout-rollback-publication",
+    "R1-R8-acceptance",
+    "owner-signoff",
+    "local-fixture-only"
+  ]
+}

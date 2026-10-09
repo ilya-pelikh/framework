@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "name": "@islands/rsbuild",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": "./src/index.ts",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@islands/contracts": "0.1.0",
+    "@rsbuild/plugin-react": "2.1.1",
+    "@rsbuild/core": "2.2.11"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "react-ssr-islands-framework",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "allowScripts": {
+    "esbuild": false
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit && npm run typecheck --workspaces",
+    "test": "node --import tsx --test --test-timeout=120000 tests/*.test.ts",
+    "build": "node --import tsx scripts/build.ts",
+    "build:attestor": "node --import tsx scripts/build-attestor.ts",
+    "security:report": "node --import tsx scripts/security-report.ts",
+    "deployment:validate": "node --import tsx scripts/validate-deployment.ts",
+    "qualification:validate": "node --import tsx scripts/validate-qualification.ts",
+    "test:load": "node --import tsx --test --test-timeout=60000 tests/load-harness.e2e.ts",
+    "start": "node dist/start.mjs",
+    "start:demo": "node dist/start.mjs --demo",
+    "dev": "node --import tsx scripts/dev.ts",
+    "test:e2e": "node --import tsx tests/production.e2e.ts",
+    "test:hardening": "node --import tsx --test --test-timeout=60000 tests/runtime-hardening.e2e.ts tests/composition.e2e.ts tests/extension.e2e.ts tests/cold-release.e2e.ts tests/policies.e2e.ts tests/asset-failure.e2e.ts tests/fixture-cleanup.e2e.ts tests/https-policy.e2e.ts tests/retention-rehearsal.e2e.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@rsbuild/core": "2.2.11",
+    "@rsbuild/plugin-react": "2.1.1",
+    "@types/express": "5.0.6",
+    "@types/node": "24.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "prettier": "3.9.9",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

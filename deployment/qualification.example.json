@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "purpose": "target",
+  "environment": {
+    "name": null,
+    "baseUrl": null,
+    "assetOrigins": [null],
+    "deploymentProfileSha256": null
+  },
+  "identity": {
+    "commit": null,
+    "artifacts": [
+      {
+        "name": null,
+        "sha256": null
+      }
+    ]
+  },
+  "approval": {
+    "frozenAt": null,
+    "approvedBy": null,
+    "evidence": null
+  },
+  "owners": {
+    "environment": null,
+    "release": null,
+    "security": null,
+    "onCall": null
+  },
+  "operations": {
+    "runbookRecord": null,
+    "retentionMs": null,
+    "pageLifetimeMs": null,
+    "rollbackWindowMs": null,
+    "propagationMs": null,
+    "clockMarginMs": null
+  },
+  "workload": {
+    "normal": {
+      "rps": null,
+      "concurrency": null,
+      "durationMs": null,
+      "requestTimeoutMs": null,
+      "disconnectAfterMs": null,
+      "routes": [
+        {
+          "path": null,
+          "weight": null,
+          "slots": null,
+          "payloadBytes": null
+        }
+      ]
+    },
+    "burst": {
+      "rps": null,
+      "concurrency": null,
+      "durationMs": null,
+      "requestTimeoutMs": null,
+      "disconnectAfterMs": null,
+      "routes": [
+        {
+          "path": null,
+          "weight": null,
+          "slots": null,
+          "payloadBytes": null
+        }
+      ]
+    },
+    "soak": {
+      "rps": null,
+      "concurrency": null,
+      "durationMs": null,
+      "requestTimeoutMs": null,
+      "disconnectAfterMs": null,
+      "routes": [
+        {
+          "path": null,
+          "weight": null,
+          "slots": null,
+          "payloadBytes": null
+        }
+      ]
+    },
+    "outage": {
+      "rps": null,
+      "concurrency": null,
+      "durationMs": null,
+      "requestTimeoutMs": null,
+      "disconnectAfterMs": null,
+      "routes": [
+        {
+          "path": null,
+          "weight": null,
+          "slots": null,
+          "payloadBytes": null
+        }
+      ]
+    },
+    "disconnect": {
+      "rps": null,
+      "concurrency": null,
+      "durationMs": null,
+      "requestTimeoutMs": null,
+      "disconnectAfterMs": null,
+      "routes": [
+        {
+          "path": null,
+          "weight": null,
+          "slots": null,
+          "payloadBytes": null
+        }
+      ]
+    }
+  },
+  "devices": [
+    {
+      "name": null,
+      "viewport": {
+        "width": null,
+        "height": null
+      },
+      "deviceScaleFactor": null,
+      "cpuSlowdown": null,
+      "mobile": null
+    }
+  ],
+  "networks": [
+    {
+      "name": null,
+      "latencyMs": null,
+      "downloadBytesPerSecond": null,
+      "uploadBytesPerSecond": null
+    }
+  ],
+  "thresholds": {
+    "normal": {
+      "latencyP95Ms": null,
+      "latencyP99Ms": null,
+      "rssBytes": null,
+      "eventLoopP99Ms": null,
+      "connections": null,
+      "fallbackRate": null,
+      "errorRate": null,
+      "browserTransferBytes": null,
+      "hydrationMs": null,
+      "cls": null
+    },
+    "burst": {
+      "latencyP95Ms": null,
+      "latencyP99Ms": null,
+      "rssBytes": null,
+      "eventLoopP99Ms": null,
+      "connections": null,
+      "fallbackRate": null,
+      "errorRate": null,
+      "browserTransferBytes": null,
+      "hydrationMs": null,
+      "cls": null
+    },
+    "soak": {
+      "latencyP95Ms": null,
+      "latencyP99Ms": null,
+      "rssBytes": null,
+      "eventLoopP99Ms": null,
+      "connections": null,
+      "fallbackRate": null,
+      "errorRate": null,
+      "browserTransferBytes": null,
+      "hydrationMs": null,
+      "cls": null
+    },
+    "outage": {
+      "latencyP95Ms": null,
+      "latencyP99Ms": null,
+      "rssBytes": null,
+      "eventLoopP99Ms": null,
+      "connections": null,
+      "fallbackRate": null,
+      "errorRate": null,
+      "browserTransferBytes": null,
+      "hydrationMs": null,
+      "cls": null
+    },
+    "disconnect": {
+      "latencyP95Ms": null,
+      "latencyP99Ms": null,
+      "rssBytes": null,
+      "eventLoopP99Ms": null,
+      "connections": null,
+      "fallbackRate": null,
+      "errorRate": null,
+      "browserTransferBytes": null,
+      "hydrationMs": null,
+      "cls": null
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "purpose": "local-smoke",
+  "environment": {
+    "name": "synthetic-local-fixture",
+    "baseUrl": "http://localhost:33115",
+    "assetOrigins": [
+      "http://localhost:36057",
+      "http://localhost:37311"
+    ],
+    "deploymentProfileSha256": "d1a23d01bcc666c8802c371385cc2586dd5440cc96570eaa4ee4fe5b570525a9"
+  },
+  "identity": {
+    "commit": "5e0938d5607e94d1de6f2d62636a11dd62219dbc35b6eb659355d555d567cadd",
+    "artifacts": [
+      {
+        "name": "busy/integrity.json",
+        "sha256": "4862ed954576e2bc6dfd117b8264370ed9ad82bda1de0b63408ef81d8242562d"
+      },
+      {
+        "name": "neighbor/integrity.json",
+        "sha256": "ca7591d37e784949582fb429f74f8300c93ae31453389f9e6cb54c2933f69179"
+      },
+      {
+        "name": "browser/runtime.js",
+        "sha256": "036312d0cf8d530de46cfcbe2605dc5168cb7ab463fa980d5ad46d5a48981b5e"
+      }
+    ]
+  },
+  "approval": {
+    "frozenAt": "2026-10-06T09:08:16.283Z",
+    "approvedBy": "local-test-fixture",
+    "evidence": "synthetic test configuration, not owner approval"
+  },
+  "owners": {
+    "environment": "local-test",
+    "release": "local-test",
+    "security": "local-test",
+    "onCall": "local-test"
+  },
+  "operations": {
+    "runbookRecord": "local-test-only",
+    "retentionMs": 1000,
+    "pageLifetimeMs": 500,
+    "rollbackWindowMs": 500,
+    "propagationMs": 100,
+    "clockMarginMs": 100
+  },
+  "workload": {
+    "normal": {
+      "rps": 10,
+      "concurrency": 4,
+      "durationMs": 400,
+      "requestTimeoutMs": 2000,
+      "disconnectAfterMs": 30,
+      "routes": [
+        {
+          "path": "/",
+          "weight": 1,
+          "slots": 2,
+          "payloadBytes": 40
+        }
+      ]
+    },
+    "burst": {
+      "rps": 20,
+      "concurrency": 4,
+      "durationMs": 400,
+      "requestTimeoutMs": 2000,
+      "disconnectAfterMs": 30,
+      "routes": [
+        {
+          "path": "/",
+          "weight": 1,
+          "slots": 2,
+          "payloadBytes": 40
+        }
+      ]
+    },
+    "soak": {
+      "rps": 10,
+      "concurrency": 4,
+      "durationMs": 800,
+      "requestTimeoutMs": 2000,
+      "disconnectAfterMs": 30,
+      "routes": [
+        {
+          "path": "/",
+          "weight": 1,
+          "slots": 2,
+          "payloadBytes": 40
+        }
+      ]
+    },
+    "outage": {
+      "rps": 10,
+      "concurrency": 4,
+      "durationMs": 400,
+      "requestTimeoutMs": 2000,
+      "disconnectAfterMs": 30,
+      "routes": [
+        {
+          "path": "/",
+          "weight": 1,
+          "slots": 2,
+          "payloadBytes": 40
+        }
+      ]
+    },
+    "disconnect": {
+      "rps": 10,
+      "concurrency": 4,
+      "durationMs": 400,
+      "requestTimeoutMs": 2000,
+      "disconnectAfterMs": 30,
+      "routes": [
+        {
+          "path": "/",
+          "weight": 1,
+          "slots": 2,
+          "payloadBytes": 40
+        }
+      ]
+    }
+  },
+  "devices": [
+    {
+      "name": "chromium-desktop-emulation",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "deviceScaleFactor": 1,
+      "cpuSlowdown": 1,
+      "mobile": false
+    }
+  ],
+  "networks": [
+    {
+      "name": "local-shaped-network",
+      "latencyMs": 0,
+      "downloadBytesPerSecond": 20000000,
+      "uploadBytesPerSecond": 20000000
+    }
+  ],
+  "thresholds": {
+    "normal": {
+      "latencyP95Ms": 2000,
+      "latencyP99Ms": 2000,
+      "rssBytes": 2147483648,
+      "eventLoopP99Ms": 1000,
+      "connections": 100,
+      "fallbackRate": 0,
+      "errorRate": 0,
+      "browserTransferBytes": 4000000,
+      "hydrationMs": 10000,
+      "cls": 1
+    },
+    "burst": {
+      "latencyP95Ms": 2000,
+      "latencyP99Ms": 2000,
+      "rssBytes": 2147483648,
+      "eventLoopP99Ms": 1000,
+      "connections": 100,
+      "fallbackRate": 0,
+      "errorRate": 0,
+      "browserTransferBytes": 4000000,
+      "hydrationMs": 10000,
+      "cls": 1
+    },
+    "soak": {
+      "latencyP95Ms": 2000,
+      "latencyP99Ms": 2000,
+      "rssBytes": 2147483648,
+      "eventLoopP99Ms": 1000,
+      "connections": 100,
+      "fallbackRate": 0,
+      "errorRate": 0,
+      "browserTransferBytes": 4000000,
+      "hydrationMs": 10000,
+      "cls": 1
+    },
+    "outage": {
+      "latencyP95Ms": 2000,
+      "latencyP99Ms": 2000,
+      "rssBytes": 2147483648,
+      "eventLoopP99Ms": 1000,
+      "connections": 100,
+      "fallbackRate": 1,
+      "errorRate": 0,
+      "browserTransferBytes": 4000000,
+      "hydrationMs": 10000,
+      "cls": 1
+    },
+    "disconnect": {
+      "latencyP95Ms": 2000,
+      "latencyP99Ms": 2000,
+      "rssBytes": 2147483648,
+      "eventLoopP99Ms": 1000,
+      "connections": 100,
+      "fallbackRate": 0,
+      "errorRate": 0,
+      "browserTransferBytes": 4000000,
+      "hydrationMs": 10000,
+      "cls": 1
+    }
+  }
+}

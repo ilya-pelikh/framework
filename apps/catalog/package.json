@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "@islands/catalog",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "cd ../.. \u0026\u0026 node --import tsx scripts/build.ts catalog",
+    "start": "node dist/server.mjs"
+  },
+  "exports": "./src/index.ts",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@islands/server": "0.1.0",
+    "react": "19.3.0",
+    "express": "5.2.1",
+    "react-dom": "19.3.0",
+    "@islands/client": "0.1.0"
+  }
+}

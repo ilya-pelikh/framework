@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "purpose": "local-rehearsal",
+  "productionQualified": false,
+  "node": "v24.21.0",
+  "platform": "win32",
+  "chromium": "153.0.8010.12",
+  "policy": {
+    "pageLifetimeMs": 500,
+    "rollbackWindowMs": 1000,
+    "propagationMs": 100,
+    "clockSkewMs": 10,
+    "retentionMs": 1110
+  },
+  "clock": "synthetic",
+  "decisions": {
+    "v0": {
+      "eligible": true,
+      "eligibleAfter": 99999
+    },
+    "v1": {
+      "eligible": false,
+      "reason": "retained"
+    },
+    "v2": {
+      "eligible": false,
+      "reason": "selected"
+    }
+  },
+  "checks": [
+    "probes",
+    "module-drain",
+    "protected-release-retained",
+    "expired-release-cleaned",
+    "cold-v1-entry-and-chunk",
+    "rollback",
+    "unchanged-host-cart"
+  ],
+  "binarySha256": "6c161a66293ba0a8f275259e76814cc3ddb4366fb1219da6e75ae24abe8cc32d",
+  "hostAssets": {
+    "bootstrap.js": "62910c275c5869d779b0b4f908c8363c172bd1d7fc6da160fc7e1de1894d9a39"
+  },
+  "cartFiles": {
+    "v1\\assets\\manifest.json": "91eba7c60f262510985c714c1d5804a137246f7899224c7c753638d8464de843",
+    "v1\\assets\\static\\css\\cart.c2fa894e1c.css": "31cba63097110216a6d16841f2a689dd5bf3ab5735b5e6e05fe24dbef21c3439",
+    "v1\\assets\\static\\js\\cart.41cbd1c424.js": "1e536064ef38c7e0f16d256882c6f4b2dd2947ce88cb15797de4ef2a437bed4c",
+    "v1\\assets\\static\\js\\lib-react.ae987cd20e.js": "c362b9ef0649b0653b265e168a195cd3ea52c3273cc42e138f410a16035393bb",
+    "v1\\assets\\static\\js\\lib-react.ae987cd20e.js.LICENSE.txt": "e47a413b62a5bf023d2b81a25d0ef4213ff1bb756df7f3c31ba57f88334e1e0f",
+    "v1\\integrity.json": "7b5804af6eab505eb19418935a53e431e8729ceb485841dccc7bed54cbff0ec2",
+    "v1\\manifest.json": "4a23b6115275b64d042a8842a869f9391ae4c0f3d72b9a9747ce79fc630b1364",
+    "v1\\published.json": "39f32c4bbcc6e1797db8e8247d0c78e2eafa69bdfe9a0c2954f4de429d0bcfb7",
+    "v1\\server\\emitted-manifest.json": "feca61da2ad787bab4c22b891de1121d8861b18f39bec5ea7627b71aa69a4c65",
+    "v1\\server\\server.mjs": "ca2c368d9765995ede0cd585f724a77af07e411859f596f2c5b96e5fb523abfd"
+  },
+  "protectedFiles": {
+    "assets\\manifest.json": "5bbd2a9d9fa9a323ec34d0399e89cd1148f67ef25a98df25bbf7974c5f97db7c",
+    "assets\\static\\css\\neighbor.cfdb631ef3.css": "57a39bb5be5078f31a271378f8e7ff7e9a2bf29ddd9ad2ffe96eab3410d4483f",
+    "assets\\static\\js\\async\\3.5b34eccc48.js": "8dd576bdc294d6f425707249ae8daf231c8955e7309cefa418bce0d904161368",
+    "assets\\static\\js\\async\\u.e85ffddde4.js": "fd1e8ccc6adfcfb9d8a49a29c9b9b09674101deac86356126c8d111d7ed88326",
+    "assets\\static\\js\\delayed.883445c857.js": "cbaacd7689a0253bc19cc02be1747b1f3c29c7ba1d6fffd08ee0ae7bce0b61bd",
+    "assets\\static\\js\\lib-react.ae987cd20e.js": "c362b9ef0649b0653b265e168a195cd3ea52c3273cc42e138f410a16035393bb",
+    "assets\\static\\js\\lib-react.ae987cd20e.js.LICENSE.txt": "e47a413b62a5bf023d2b81a25d0ef4213ff1bb756df7f3c31ba57f88334e1e0f",
+    "assets\\static\\js\\neighbor.f383ba0c2d.js": "5c763b96a74555bd328cbb3f58cfabe9d3999c2bd2f0dd3c2f8285fde74d7d4e",
+    "integrity.json": "dd7caa251f68b78d47dc09f34d66b3df98bd3a0f88542552b109d10be36a012a",
+    "manifest.json": "3490f3d8c8cb6c8ea17cf2b2452095c0b2a75c35bf62c5015d2a2307d56dfa0e",
+    "published.json": "17f591385c059ac9e98a417f7f3661d52a3d0a6bf72392b5783fd092aa37b3a1",
+    "server\\emitted-manifest.json": "feca61da2ad787bab4c22b891de1121d8861b18f39bec5ea7627b71aa69a4c65",
+    "server\\server.mjs": "def6c699fe7bb67d2f7dae54956da00c68665ad16739cc8ec6958e735b4514cb"
+  },
+  "evidenceDate": "2026-10-04",
+  "source": "clean Windows verification islands-verification-10f82ad4bbbf4d10b4081aed1cc201aa",
+  "limitations": [
+    "Synthetic retention clock and durations; not a production policy",
+    "Local filesystem and loopback origins; no target ACL, CDN or distributed lock qualification"
+  ]
+}

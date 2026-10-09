@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "name": "@islands/server",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": "./src/index.ts",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@islands/contracts": "0.1.0",
+    "express": "5.2.1",
+    "parse5": "8.0.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}
